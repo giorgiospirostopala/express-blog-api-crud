@@ -13,10 +13,11 @@ const posts = require("../data/postsData");
 // e definiamo router con l'istanza express.Router()
 const router = express.Router();
 
-// recuperiamo i post in formato json (serve davvero?)
-router.get('/', (req, res) => {
-    res.json(posts);
-});
+// recuperiamo i post in formato json
+//! QUESTO SOVRASCRIVEVA TUTTO
+// router.get('/', (req, res) => {
+//     res.json(posts);
+// });
 
 
 ///_____________________________
