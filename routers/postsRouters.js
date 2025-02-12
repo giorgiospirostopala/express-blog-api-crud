@@ -21,32 +21,13 @@ router.get('/', (req, res) => {
 
 ///_____________________________
 
-// rotte CRUD seguendo REST
+// rotte ripulite grazie al controller
 
-
-// INDEX
-router.get('/', (req, res) => {
-    
-    
-
-});
-
-
-// SHOW
-router.get('/:id', (req, res) => {
-
-    
-
-});
-
-
-// DESTROY
-router.delete('/:id', (req, res) => {
-
-    
-
-});
-
+router.get('/', postsController.index);
+router.get('/:id', postsController.show);
+router.post('/', postsController.store);
+router.put('/:id', postsController.update);
+router.delete('/:id', postsController.destroy);
 
 ///_____________________________
 
