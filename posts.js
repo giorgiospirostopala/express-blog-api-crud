@@ -1,3 +1,4 @@
+// qui conserviamo i dati in maniera ordinata
 const posts = [
   {
     id: 1,
