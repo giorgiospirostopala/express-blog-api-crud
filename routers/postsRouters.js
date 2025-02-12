@@ -26,16 +26,8 @@ router.get('/', (req, res) => {
 
 // INDEX
 router.get('/', (req, res) => {
-
-    let filteredPosts = posts;
-
-    if (req.query.tag) {
-        filteredPosts = posts.filter(post => post.tags.includes(req.query.tag));
-    }
-
-    res.json(filteredPosts);
-
-    // res.send(`Lista dei post`);
+    
+    
 
 });
 
@@ -43,17 +35,7 @@ router.get('/', (req, res) => {
 // SHOW
 router.get('/:id', (req, res) => {
 
-    const id = parseInt(req.params.id);
-    const post = posts.find(post => post.id === id);
-
-    if (!post) {
-        res.status(404);
-        return res.json({ error: "Not Found", message: "Post non trovato" });
-    }
-
-    res.json(post);
-
-    // res.send(`Dettaglio del post: ${req.params.id}`);
+    
 
 });
 
@@ -61,21 +43,7 @@ router.get('/:id', (req, res) => {
 // DESTROY
 router.delete('/:id', (req, res) => {
 
-    const id = parseInt(req.params.id);
-    const post = posts.find(post => post.id === id);
-
-    if (!post) {
-        res.status(404);
-        return res.json({status: 404, error: "Not Found", message: "Post non trovato" });
-    }
-
-    posts.splice(posts.indexOf(post), 1);
-
-    console.log(posts); // per vedere il nuovo array
-
-    res.sendStatus(204);
-
-    // res.send(`Eliminazione del post: ${req.params.id}`);
+    
 
 });
 
