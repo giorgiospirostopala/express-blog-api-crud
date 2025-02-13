@@ -5,7 +5,7 @@ const port = 3000;
 
 //  per gestire gli oggetti JSON nel body
 /// "Body-parser"
-app.use(express.json());
+app.use(express.json()); // (già messo)
 
 // per eventuali file statici
 app.use(express.static('public'));
