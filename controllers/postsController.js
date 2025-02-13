@@ -18,12 +18,13 @@ function index(req, res) {
 
 function show(req, res) {
 
-    const id = parseInt(req.params.id);
-    const post = posts.find(post => post.id === id);
+    // const id = parseInt(req.params.id);
+    const post = posts.find(post => post.id === parseInt(req.params.id));
 
+    // in teoria questo fa già quanto richiesto dal bonus (?)
     if (!post) {
         res.status(404);
-        return res.json({ error: "Not Found", message: "Post non trovato" });
+        return res.json({ error: "Not Found", message: "Id non associato a nessun post" });
     }
 
     res.json(post);
@@ -48,9 +49,10 @@ function destroy(req, res) {
     const id = parseInt(req.params.id);
     const post = posts.find(post => post.id === id);
 
+    // in teoria questo fa già quanto richiesto dal bonus (?)
     if (!post) {
         res.status(404);
-        return res.json({ status: 404, error: "Not Found", message: "Post non trovato" });
+        return res.json({ status: 404, error: "Not Found", message: "Id non associato a nessun post" });
     }
 
     posts.splice(posts.indexOf(post), 1);
