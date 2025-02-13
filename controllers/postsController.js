@@ -37,8 +37,29 @@ function show(req, res) {
 
 
 function store(req, res) {
-    console.log(req.body);
-    res.send('Creazione nuovo post');
+
+    // id incrementale automatico da database
+    const newId = posts[posts.length - 1].id + 1;
+
+    // nuovo post
+    const newPost = {
+        "id": newId,
+        "title": "Pippo",
+        "content": "Pippo che pippa.",
+        "image": "/imgs/posts/pippopippa.jpg",
+        "tags": ["Pippo", "Droga", "Sniffare", "Dipendenza"]
+    };
+
+    // push del post
+    posts.push(newPost);
+
+    // check
+    console.log(posts);
+
+    // restituzioni
+    res.status(201);
+    res.json(newPost);
+
 }
 
 
