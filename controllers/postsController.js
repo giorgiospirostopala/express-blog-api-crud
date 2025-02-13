@@ -26,7 +26,7 @@ function show(req, res) {
     // in teoria questo fa già quanto richiesto dal bonus (?)
     if (!post) {
         res.status(404);
-        return res.json({ error: "Not Found", message: "Id non associato a nessun post" });
+        return res.json({ status: 404, error: "Not Found", message: "Id non associato a nessun post" });
     }
 
     res.json(post);
