@@ -3,6 +3,10 @@ const postsRouters = require('./routers/postsRouters');
 const app = express();
 const port = 3000;
 
+// dichiarazione middlewares
+const notFound = require('./middlewares/notFound');
+const errorsHandler = require('./middlewares/errorsHandler');
+
 //  per gestire gli oggetti JSON nel body
 /// "Body-parser"
 app.use(express.json());
@@ -17,3 +21,9 @@ app.use('/posts', postsRouters);
 app.listen(port, () => {
     console.log(`Server in ascolto su http://localhost: ${port}`);
 });
+
+// (DOPO le rotte) 
+// registrazione middlewares
+app.use(notFound);
+app.use(errorsHandler);
+
