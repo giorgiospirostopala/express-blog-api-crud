@@ -40,17 +40,26 @@ function show(req, res) {
 
 
 function store(req, res) {
-
+   
     // id incrementale automatico da database
     const newId = posts[posts.length - 1].id + 1;
 
-    // nuovo post
+    // nuovo post specifico [ avevo maleinterpretato la milestone ]
+    // const newPost = {
+    //     "id": newId,
+    //     "title": "Pippo",
+    //     "content": "Pippo che pippa.",
+    //     "image": "/imgs/posts/pippopippa.jpg",
+    //     "tags": ["Pippo", "Droga", "Sniffare", "Dipendenza"]
+    // };
+
+    // nuovo post customizzabile [ corretto ]
     const newPost = {
-        "id": newId,
-        "title": "Pippo",
-        "content": "Pippo che pippa.",
-        "image": "/imgs/posts/pippopippa.jpg",
-        "tags": ["Pippo", "Droga", "Sniffare", "Dipendenza"]
+        id : newId,
+        title : req.body.title,
+        content : req.body.content,
+        image : req.body.image,
+        tags : req.body.tags
     };
 
     // push del post
