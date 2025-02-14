@@ -18,12 +18,15 @@ app.use(express.static('public'));
 /// MEGLIO "/api/posts" per convenzione!
 app.use('/posts', postsRouters);
 
-app.listen(port, () => {
-    console.log(`Server in ascolto su http://localhost: ${port}`);
-});
-
 // (DOPO le rotte) 
 // registrazione middlewares
 app.use(notFound);
 app.use(errorsHandler);
+
+// app.listen() sempre in fondo
+app.listen(port, () => {
+    console.log(`Server in ascolto su http://localhost: ${port}`);
+});
+
+
 
